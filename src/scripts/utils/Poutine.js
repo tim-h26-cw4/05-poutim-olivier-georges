@@ -24,10 +24,13 @@ export default class Poutine {
 
   updatePhoto() {
     const imgPoutine = this.element.querySelector('img');
-    imgPoutine.classList.toggle('is-active');
-    imgPoutine.src = `assets/images/${this.selectedType}.png`;
-    if ('is-active' in this) {
-      console.log('A');
+
+    if (imgPoutine.classList.contains('is-active')) {
+      imgPoutine.src = `assets/images/poutine.png`;
+      imgPoutine.classList.remove('is-active');
+    } else {
+      imgPoutine.classList.add('is-active');
+      imgPoutine.src = `assets/images/${this.selectedType}.png`;
     }
   }
 }
